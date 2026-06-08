@@ -2,30 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/vi/1-create-new-aws-account/</loc>
-    <lastmod>2026-06-02T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/vi/4-devops-deployment/4.1-cicd-pipeline/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/1-create-new-aws-account/"
+                href="//localhost:1313/4-devops-deployment/4.1-cicd-pipeline/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/1-create-new-aws-account/"
+                href="//localhost:1313/vi/4-devops-deployment/4.1-cicd-pipeline/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/</loc>
-    <lastmod>2026-06-02T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/vi/2-architecture-components/2.1-frontend-amplify/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/"
+                href="//localhost:1313/2-architecture-components/2.1-frontend-amplify/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/2-mfa-setup-for-aws-user-root/1-virtual-mfa-device/"
+                href="//localhost:1313/vi/2-architecture-components/2.1-frontend-amplify/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/1-system-overview/1.1-problem-statement/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/1-system-overview/1.1-problem-statement/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/1-system-overview/1.1-problem-statement/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/3-system-flow/3.1-frontend-request-flow/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/3-system-flow/3.1-frontend-request-flow/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/3-system-flow/3.1-frontend-request-flow/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/1-system-overview/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/1-system-overview/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/1-system-overview/"
                 />
   </url><url>
     <loc>//localhost:1313/vi/</loc>
@@ -41,69 +80,316 @@
                 href="//localhost:1313/vi/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/2-mfa-setup-for-aws-user-root/2-u2f-security-key/</loc>
-    <lastmod>2026-06-02T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/vi/2-architecture-components/2.2-backend-ecs-fargate/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/2-mfa-setup-for-aws-user-root/2-u2f-security-key/"
+                href="//localhost:1313/2-architecture-components/2.2-backend-ecs-fargate/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/2-mfa-setup-for-aws-user-root/2-u2f-security-key/"
+                href="//localhost:1313/vi/2-architecture-components/2.2-backend-ecs-fargate/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/2-mfa-setup-for-aws-user-root/</loc>
-    <lastmod>2026-06-02T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/vi/4-devops-deployment/4.2-infrastructure-as-code/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/2-mfa-setup-for-aws-user-root/"
+                href="//localhost:1313/4-devops-deployment/4.2-infrastructure-as-code/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/2-mfa-setup-for-aws-user-root/"
+                href="//localhost:1313/vi/4-devops-deployment/4.2-infrastructure-as-code/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/3-create-admin-user-and-group/</loc>
-    <lastmod>2026-06-02T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/vi/3-system-flow/3.2-backend-request-flow/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/3-create-admin-user-and-group/"
+                href="//localhost:1313/3-system-flow/3.2-backend-request-flow/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/3-create-admin-user-and-group/"
+                href="//localhost:1313/vi/3-system-flow/3.2-backend-request-flow/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/</loc>
-    <lastmod>2026-06-02T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/vi/2-architecture-components/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/"
+                href="//localhost:1313/2-architecture-components/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/2-mfa-setup-for-aws-user-root/3-other-hardware-mfa-device/"
+                href="//localhost:1313/vi/2-architecture-components/"
                 />
   </url><url>
-    <loc>//localhost:1313/vi/4-verify-new-account/</loc>
-    <lastmod>2026-06-02T00:00:00+00:00</lastmod>
+    <loc>//localhost:1313/vi/1-system-overview/1.2-design-goals/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="//localhost:1313/4-verify-new-account/"
+                href="//localhost:1313/1-system-overview/1.2-design-goals/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="//localhost:1313/vi/4-verify-new-account/"
+                href="//localhost:1313/vi/1-system-overview/1.2-design-goals/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/2-architecture-components/2.3-database-dynamodb-global-tables/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-architecture-components/2.3-database-dynamodb-global-tables/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-architecture-components/2.3-database-dynamodb-global-tables/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/3-system-flow/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/3-system-flow/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/3-system-flow/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/3-system-flow/3.3-database-access-flow/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/3-system-flow/3.3-database-access-flow/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/3-system-flow/3.3-database-access-flow/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/1-system-overview/1.3-system-scope/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/1-system-overview/1.3-system-scope/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/1-system-overview/1.3-system-scope/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/4-devops-deployment/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/4-devops-deployment/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/4-devops-deployment/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/3-system-flow/3.4-region-failover-flow/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/3-system-flow/3.4-region-failover-flow/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/3-system-flow/3.4-region-failover-flow/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/2-architecture-components/2.4-networking/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-architecture-components/2.4-networking/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-architecture-components/2.4-networking/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/1-system-overview/1.4-architecture-overview/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/1-system-overview/1.4-architecture-overview/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/1-system-overview/1.4-architecture-overview/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/5-monitoring-observability/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/5-monitoring-observability/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/5-monitoring-observability/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/2-architecture-components/2.5-traffic-routing/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-architecture-components/2.5-traffic-routing/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-architecture-components/2.5-traffic-routing/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/6-high-availability/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/6-high-availability/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/6-high-availability/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/2-architecture-components/2.6-security-services/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-architecture-components/2.6-security-services/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-architecture-components/2.6-security-services/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/2-architecture-components/2.7-monitoring-services/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/2-architecture-components/2.7-monitoring-services/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/2-architecture-components/2.7-monitoring-services/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/7-scalability/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/7-scalability/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/7-scalability/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/8-security/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/8-security/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/8-security/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/9-disaster-recovery/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/9-disaster-recovery/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/9-disaster-recovery/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/10-backup-restore/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/10-backup-restore/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/10-backup-restore/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/11-cost-optimization/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/11-cost-optimization/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/11-cost-optimization/"
+                />
+  </url><url>
+    <loc>//localhost:1313/vi/12-advantages-limitations-future-improvements/</loc>
+    <lastmod>2026-06-03T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="//localhost:1313/12-advantages-limitations-future-improvements/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="//localhost:1313/vi/12-advantages-limitations-future-improvements/"
                 />
   </url><url>
     <loc>//localhost:1313/vi/categories/</loc>

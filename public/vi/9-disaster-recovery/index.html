@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.149.1">
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Disaster Recovery :: Tạo mới tài khoản AWS</title>
+
+    
+    <link href="/css/nucleus.css?1780910012" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1780910012" rel="stylesheet">
+    <link href="/css/hybrid.css?1780910012" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1780910012" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1780910012" rel="stylesheet">
+    <link href="/css/auto-complete.css?1780910012" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1780910012" rel="stylesheet">
+    <link href="/css/theme.css?1780910012" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1780910012" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1780910012" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1780910012"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/vi/9-disaster-recovery/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1780910012"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1780910012"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/localhost:1313\/\/vi";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1780910012"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-system-overview/" title="Tổng quan hệ thống" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-system-overview/">
+           <b> 1. </b> Tổng quan hệ thống
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-system-overview/1.1-problem-statement/" title="Giới thiệu bài toán" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-system-overview/1.1-problem-statement/">
+           <b> 1.1 </b> Giới thiệu bài toán
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-system-overview/1.2-design-goals/" title="Mục tiêu thiết kế" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-system-overview/1.2-design-goals/">
+           <b> 1.2 </b> Mục tiêu thiết kế
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-system-overview/1.3-system-scope/" title="Phạm vi hệ thống" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-system-overview/1.3-system-scope/">
+           <b> 1.3 </b> Phạm vi hệ thống
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-system-overview/1.4-architecture-overview/" title="Sơ đồ kiến trúc tổng quan" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-system-overview/1.4-architecture-overview/">
+           <b> 1.4 </b> Sơ đồ kiến trúc tổng quan
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-architecture-components/" title="Mô tả các thành phần kiến trúc" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-architecture-components/">
+           <b> 2. </b> Mô tả các thành phần kiến trúc
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-architecture-components/2.1-frontend-amplify/" title="Frontend - AWS Amplify" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-architecture-components/2.1-frontend-amplify/">
+           <b> 2.1 </b> Frontend - AWS Amplify
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-architecture-components/2.2-backend-ecs-fargate/" title="Backend - ECS Fargate" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-architecture-components/2.2-backend-ecs-fargate/">
+           <b> 2.2 </b> Backend - ECS Fargate
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-architecture-components/2.3-database-dynamodb-global-tables/" title="Database - DynamoDB Global Tables" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-architecture-components/2.3-database-dynamodb-global-tables/">
+           <b> 2.3 </b> Database - DynamoDB Global Tables
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-architecture-components/2.4-networking/" title="Networking - VPC, Subnet, IGW, NAT Gateway, VPC Endpoint" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-architecture-components/2.4-networking/">
+           <b> 2.4 </b> Networking - VPC, Subnet, IGW, NAT Gateway, VPC Endpoint
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-architecture-components/2.5-traffic-routing/" title="Traffic routing - Route 53, Global Accelerator, ALB" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-architecture-components/2.5-traffic-routing/">
+           <b> 2.5 </b> Traffic routing - Route 53, Global Accelerator, ALB
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-architecture-components/2.6-security-services/" title="Security services - WAF, IAM, Secrets Manager" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-architecture-components/2.6-security-services/">
+           <b> 2.6 </b> Security services - WAF, IAM, Secrets Manager
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-architecture-components/2.7-monitoring-services/" title="Monitoring services - CloudWatch, Prometheus, Grafana" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-architecture-components/2.7-monitoring-services/">
+           <b> 2.7 </b> Monitoring services - CloudWatch, Prometheus, Grafana
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-system-flow/" title="Luồng hoạt động của hệ thống" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-system-flow/">
+           <b> 3. </b> Luồng hoạt động của hệ thống
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-system-flow/3.1-frontend-request-flow/" title="Luồng request frontend" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-system-flow/3.1-frontend-request-flow/">
+           <b> 3.1 </b> Luồng request frontend
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-system-flow/3.2-backend-request-flow/" title="Luồng request backend" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-system-flow/3.2-backend-request-flow/">
+           <b> 3.2 </b> Luồng request backend
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-system-flow/3.3-database-access-flow/" title="Luồng truy cập database" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-system-flow/3.3-database-access-flow/">
+           <b> 3.3 </b> Luồng truy cập database
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-system-flow/3.4-region-failover-flow/" title="Luồng failover giữa các region" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-system-flow/3.4-region-failover-flow/">
+           <b> 3.4 </b> Luồng failover giữa các region
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-devops-deployment/" title="DevOps &amp; Deployment" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-devops-deployment/">
+           <b> 4. </b> DevOps &amp; Deployment
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-devops-deployment/4.1-cicd-pipeline/" title="CI/CD pipeline cho frontend và backend" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-devops-deployment/4.1-cicd-pipeline/">
+           <b> 4.1 </b> CI/CD pipeline cho frontend và backend
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-devops-deployment/4.2-infrastructure-as-code/" title="Infrastructure as Code với Terraform" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-devops-deployment/4.2-infrastructure-as-code/">
+           <b> 4.2 </b> Infrastructure as Code với Terraform
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-monitoring-observability/" title="Monitoring / Observability" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-monitoring-observability/">
+           <b> 5. </b> Monitoring / Observability
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-high-availability/" title="High Availability" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-high-availability/">
+           <b> 6. </b> High Availability
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-scalability/" title="Scalability" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-scalability/">
+           <b> 7. </b> Scalability
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/8-security/" title="Security" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/8-security/">
+           <b> 8. </b> Security
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/9-disaster-recovery/" title="Disaster Recovery" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/vi/9-disaster-recovery/">
+           <b> 9. </b> Disaster Recovery
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/10-backup-restore/" title="Backup &amp; Restore" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/10-backup-restore/">
+           <b> 10. </b> Backup &amp; Restore
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/11-cost-optimization/" title="Cost Optimization" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/11-cost-optimization/">
+           <b> 11. </b> Cost Optimization
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/12-advantages-limitations-future-improvements/" title="Ưu điểm, hạn chế và hướng phát triển" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/12-advantages-limitations-future-improvements/">
+           <b> 12. </b> Ưu điểm, hạn chế và hướng phát triển
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="http://awsstudygroup.com"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj"><i class='fab fa-facebook'></i> AWS Study Group - Nhóm FB</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="//localhost:1313/9-disaster-recovery/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="//localhost:1313/vi/9-disaster-recovery/" selected>Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830891&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>26-11-2023</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng</a>
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/vi/'>Tổng quan Workshop</a> > Disaster Recovery
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#91-kịch-bản-một-az-bị-lỗi">9.1 Kịch bản một AZ bị lỗi</a></li>
+    <li><a href="#92-kịch-bản-một-region-bị-lỗi">9.2 Kịch bản một Region bị lỗi</a></li>
+    <li><a href="#93-rto--rpo-dự-kiến">9.3 RTO / RPO dự kiến</a></li>
+    <li><a href="#94-chiến-lược-failover">9.4 Chiến lược failover</a></li>
+    <li><a href="#95-quy-trình-khôi-phục-hệ-thống">9.5 Quy trình khôi phục hệ thống</a>
+      <ul>
+        <li><a href="#bước-1-phát-hiện-sự-cố">Bước 1: Phát hiện sự cố</a></li>
+        <li><a href="#bước-2-xác-định-phạm-vi-ảnh-hưởng">Bước 2: Xác định phạm vi ảnh hưởng</a></li>
+        <li><a href="#bước-3-kích-hoạt-failover-nếu-cần">Bước 3: Kích hoạt failover (nếu cần)</a></li>
+        <li><a href="#bước-4-khôi-phục-tài-nguyên-lỗi">Bước 4: Khôi phục tài nguyên lỗi</a></li>
+        <li><a href="#bước-5-xác-minh-hệ-thống-sau-khôi-phục">Bước 5: Xác minh hệ thống sau khôi phục</a></li>
+        <li><a href="#bước-6-failback-khôi-phục-về-trạng-thái-ban-đầu">Bước 6: Failback (Khôi phục về trạng thái ban đầu)</a></li>
+        <li><a href="#bước-7-post-incident-review-đánh-giá-sau-sự-cố">Bước 7: Post-incident review (Đánh giá sau sự cố)</a></li>
+      </ul>
+    </li>
+    <li><a href="#kết-luận">Kết luận</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Disaster Recovery
+            </h1>
+          
+
+        
+
+
+
+	<h1 id="9-disaster-recovery">9. Disaster Recovery</h1>
+<p>Phần này mô tả chiến lược Khôi phục sau thảm họa (Disaster Recovery - DR) của dự án MoneyTrack, trình bày chi tiết cách hệ thống phản ứng khi xảy ra lỗi và quy trình khôi phục dịch vụ.</p>
+<h2 id="91-kịch-bản-một-az-bị-lỗi">9.1 Kịch bản một AZ bị lỗi</h2>
+<p><strong>Mô tả:</strong></p>
+<ul>
+<li>Một Availability Zone (AZ) trong một region gặp sự cố (ví dụ: mất điện, đứt cáp).</li>
+<li>Các ECS Fargate task hoặc subnet nằm trong AZ đó có thể bị ảnh hưởng và ngừng hoạt động.</li>
+<li>Application Load Balancer (ALB) health check phát hiện các target trong AZ bị lỗi không còn healthy.</li>
+<li>ALB ngừng route traffic đến các ECS task bị lỗi và tự động chuyển toàn bộ request sang các task healthy ở AZ còn lại.</li>
+<li>ECS Service sẽ cố gắng tạo lại task mới ở AZ còn hoạt động nếu AZ đó còn đủ capacity (tài nguyên).</li>
+<li>DynamoDB là managed service nên vẫn duy trì khả năng phục vụ bình thường trong region đó.</li>
+<li><em>Lưu ý:</em> Nếu NAT Gateway chỉ được triển khai ở một AZ để tiết kiệm chi phí, nó sẽ trở thành điểm lỗi (single point of failure). Trong môi trường production, nên triển khai NAT Gateway ở mọi AZ.</li>
+</ul>
+<p><strong>Luồng xử lý lỗi:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>AZ A lỗi → ALB health check phát hiện target unhealthy → Traffic chuyển sang ECS task ở AZ B → Hệ thống tiếp tục phục vụ
+</span></span></code></pre></div><p><strong>Kết quả:</strong></p>
+<ul>
+<li>Người dùng có thể chỉ bị ảnh hưởng rất nhẹ hoặc hoàn toàn không nhận thấy sự gián đoạn nếu hệ thống có đủ số lượng task dự phòng ở AZ còn lại.</li>
+<li>Đây là kịch bản được xử lý hoàn toàn tự động nhờ vào thiết kế kiến trúc Multi-AZ.</li>
+</ul>
+<hr>
+<h2 id="92-kịch-bản-một-region-bị-lỗi">9.2 Kịch bản một Region bị lỗi</h2>
+<p><strong>Mô tả:</strong></p>
+<ul>
+<li>Một region chính gặp sự cố nghiêm trọng, ảnh hưởng đến ALB, ECS Fargate, VPC hoặc các service cốt lõi khác trong region đó.</li>
+<li>AWS Global Accelerator hoặc Route 53 health check phát hiện endpoint của region bị lỗi không còn healthy.</li>
+<li>Traffic mới từ người dùng được tự động chuyển sang region còn hoạt động.</li>
+<li>Hạ tầng backend (ECS tasks) đã được triển khai sẵn ở region dự phòng sẽ tiếp tục xử lý request.</li>
+<li>DynamoDB Global Tables đảm bảo dữ liệu đã được replicate sang region còn lại để sẵn sàng phục vụ.</li>
+<li><em>Lưu ý:</em> Để quá trình khôi phục diễn ra suôn sẻ, các thành phần phụ trợ như Secrets Manager (chứa secret), ECR (chứa Docker image) hoặc cấu hình Terraform phải được đồng bộ sẵn ở region dự phòng.</li>
+</ul>
+<p><strong>Luồng xử lý lỗi:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>Region A lỗi → Global Accelerator đánh dấu endpoint unhealthy → Traffic chuyển sang Region B → ALB Region B → ECS Fargate Region B → DynamoDB Global Tables
+</span></span></code></pre></div><p><strong>Kết quả:</strong></p>
+<ul>
+<li>Hệ thống tiếp tục phục vụ người dùng từ region còn healthy.</li>
+<li>Một số request đang được xử lý dở dang tại region lỗi ngay tại thời điểm xảy ra sự cố có thể bị thất bại, yêu cầu client (frontend) phải retry.</li>
+<li>Dữ liệu có thể có độ trễ replicate nhỏ (vài phần trăm giây), nhưng DynamoDB Global Tables đảm bảo dữ liệu ở region dự phòng gần như là mới nhất.</li>
+</ul>
+<hr>
+<h2 id="93-rto--rpo-dự-kiến">9.3 RTO / RPO dự kiến</h2>
+<ul>
+<li><strong>RTO (Recovery Time Objective):</strong> Thời gian tối đa hệ thống cần để khôi phục dịch vụ sau sự cố.</li>
+<li><strong>RPO (Recovery Point Objective):</strong> Lượng dữ liệu tối đa có thể bị mất hoặc chưa kịp đồng bộ tại thời điểm xảy ra sự cố.</li>
+</ul>
+<p>Với dự án MoneyTrack, mục tiêu RTO/RPO dự kiến như sau:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Kịch bản</th>
+          <th style="text-align: left">RTO dự kiến</th>
+          <th style="text-align: left">RPO dự kiến</th>
+          <th style="text-align: left">Giải thích</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>Một ECS task bị lỗi</strong></td>
+          <td style="text-align: left">Vài giây đến vài phút</td>
+          <td style="text-align: left">Gần như 0</td>
+          <td style="text-align: left">ECS tạo task mới thay thế, ALB chỉ route đến các target healthy.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Một AZ bị lỗi</strong></td>
+          <td style="text-align: left">Vài phút</td>
+          <td style="text-align: left">Gần như 0</td>
+          <td style="text-align: left">ALB tự động chuyển traffic sang các AZ còn lại trong cùng một region.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Một Region bị lỗi</strong></td>
+          <td style="text-align: left">Vài phút</td>
+          <td style="text-align: left">Vài giây đến vài phút</td>
+          <td style="text-align: left">Global Accelerator chuyển traffic sang region healthy, DynamoDB Global Tables cung cấp dữ liệu đã được replicate.</td>
+      </tr>
+  </tbody>
+</table>
+<p><em>Lưu ý: Các giá trị RTO/RPO này là mục tiêu thiết kế dự kiến, không phải cam kết tuyệt đối (SLA). RTO/RPO thực tế phụ thuộc vào cấu hình health check interval, chiến lược failover, độ trễ replication, mức độ sẵn sàng của CI/CD và bản chất thực tế của sự cố.</em></p>
+<hr>
+<h2 id="94-chiến-lược-failover">9.4 Chiến lược failover</h2>
+<p>Dự án có thể áp dụng các chiến lược failover khác nhau tùy thuộc vào chi phí và mục tiêu vận hành:</p>
+<ul>
+<li><strong>Active-Active:</strong> Cả 2 region cùng phục vụ traffic đồng thời. Global Accelerator định tuyến user đến region phù hợp nhất. Khi một region lỗi, traffic được chuyển hết sang region còn lại.
+<ul>
+<li><em>Ưu điểm:</em> RTO thấp nhất, tận dụng tối đa tài nguyên ở cả 2 region.</li>
+<li><em>Hạn chế:</em> Chi phí cao hơn, đòi hỏi xử lý tính nhất quán (consistency) và xung đột dữ liệu (conflict) phức tạp hơn.</li>
+</ul>
+</li>
+<li><strong>Active-Passive:</strong> Một region chính phục vụ toàn bộ traffic. Region còn lại ở trạng thái chờ (dự phòng). Khi region chính lỗi, traffic mới được chuyển sang.
+<ul>
+<li><em>Ưu điểm:</em> Dễ kiểm soát hơn, có thể tối ưu chi phí nếu chạy quy mô nhỏ ở region dự phòng.</li>
+<li><em>Hạn chế:</em> RTO có thể cao hơn nếu backend ở region dự phòng cần thời gian để scale up (tăng capacity) để gánh toàn bộ tải.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Định hướng của MoneyTrack:</strong>
+Với kiến trúc hiện tại, backend và database được triển khai sẵn ở cả 2 region. Global Accelerator hỗ trợ điều hướng traffic linh hoạt và DynamoDB Global Tables đồng bộ dữ liệu hai chiều. Kiến trúc này hỗ trợ cả hai mô hình trên. Failover nên được kiểm tra định kỳ thông qua các kịch bản diễn tập giả lập sự cố (Game Days).</p>
+<p><strong>Luồng Failover:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>Health check failed → Endpoint marked unhealthy → Stop routing to failed region → Route traffic to healthy region → Monitor recovery
+</span></span></code></pre></div><hr>
+<h2 id="95-quy-trình-khôi-phục-hệ-thống">9.5 Quy trình khôi phục hệ thống</h2>
+<p>Khi xảy ra sự cố, quy trình xử lý chung diễn ra theo các bước sau:</p>
+<h3 id="bước-1-phát-hiện-sự-cố">Bước 1: Phát hiện sự cố</h3>
+<ul>
+<li>Phát hiện bất thường thông qua CloudWatch Alarm, ALB health check, event của ECS service, metrics của WAF/Global Accelerator hoặc trên Grafana dashboard (ví dụ: lỗi HTTP 5xx tăng vọt, ALB báo unhealthy target, ECS task bị stopped, DynamoDB bị throttling, hoặc endpoint của region bị unhealthy).</li>
+</ul>
+<h3 id="bước-2-xác-định-phạm-vi-ảnh-hưởng">Bước 2: Xác định phạm vi ảnh hưởng</h3>
+<ul>
+<li>Kiểm tra xem nguyên nhân cốt lõi nằm ở application code, một ECS task cụ thể, ALB, vấn đề mạng, database, lỗi một AZ hay sập toàn bộ region.</li>
+<li>So sánh metrics giữa 2 region để xác định rõ region nào còn đang healthy.</li>
+</ul>
+<h3 id="bước-3-kích-hoạt-failover-nếu-cần">Bước 3: Kích hoạt failover (nếu cần)</h3>
+<ul>
+<li><strong>Lỗi AZ:</strong> Để ALB và ECS tự động chuyển traffic và thay thế task.</li>
+<li><strong>Lỗi Region:</strong> Xác nhận Global Accelerator đã chuyển traffic sang region còn healthy.</li>
+<li>Nếu dùng Active-Passive, có thể cần tăng <code>desired_count</code> của ECS task ở region dự phòng để đảm bảo đủ khả năng xử lý tải.</li>
+</ul>
+<h3 id="bước-4-khôi-phục-tài-nguyên-lỗi">Bước 4: Khôi phục tài nguyên lỗi</h3>
+<ul>
+<li>Nếu lỗi do application: Rollback Docker image về phiên bản cũ ổn định hoặc redeploy ECS service.</li>
+<li>Nếu lỗi network: Kiểm tra lại cấu hình Security Group, route table, NAT Gateway, VPC Endpoint.</li>
+<li>Nếu lỗi dữ liệu: Kiểm tra trạng thái replication của DynamoDB Global Tables.</li>
+<li>Nếu infrastructure bị xóa nhầm hoặc sửa sai: Dùng Terraform để apply lại cấu hình chuẩn.</li>
+</ul>
+<h3 id="bước-5-xác-minh-hệ-thống-sau-khôi-phục">Bước 5: Xác minh hệ thống sau khôi phục</h3>
+<ul>
+<li>Kiểm tra các API health check endpoint.</li>
+<li>Kiểm tra ALB target group xem các instance đã healthy chưa.</li>
+<li>Kiểm tra trạng thái ECS task có đang RUNNING ổn định không.</li>
+<li>Kiểm tra application log trong CloudWatch để tìm lỗi ẩn.</li>
+<li>Kiểm tra các dashboard trên Grafana xem metrics đã bình thường chưa.</li>
+<li>Kiểm tra dữ liệu DynamoDB ở cả 2 region.</li>
+</ul>
+<h3 id="bước-6-failback-khôi-phục-về-trạng-thái-ban-đầu">Bước 6: Failback (Khôi phục về trạng thái ban đầu)</h3>
+<ul>
+<li>Khi region bị lỗi đã được sửa chữa và hoạt động bình thường, <strong>không</strong> chuyển toàn bộ traffic về ngay lập tức.</li>
+<li>Cần kiểm tra kỹ backend, database replication, log và metrics ở region vừa được sửa.</li>
+<li>Sau khi ổn định, chuyển traffic lại từ từ (ví dụ: dùng traffic dials của Global Accelerator) và theo dõi sát sao.</li>
+</ul>
+<h3 id="bước-7-post-incident-review-đánh-giá-sau-sự-cố">Bước 7: Post-incident review (Đánh giá sau sự cố)</h3>
+<ul>
+<li>Ghi chép lại nguyên nhân gốc rễ (root cause) của sự cố.</li>
+<li>Đánh giá xem RTO/RPO thực tế có đạt mục tiêu thiết kế không.</li>
+<li>Cập nhật lại tài liệu runbook, điều chỉnh alert threshold hoặc sửa code/infrastructure Terraform nếu cần để khắc phục triệt để.</li>
+<li>Bổ sung test case để tránh lặp lại lỗi tương tự trong tương lai.</li>
+</ul>
+<h2 id="kết-luận">Kết luận</h2>
+<p>Chiến lược Disaster Recovery của MoneyTrack dựa trên sự kết hợp giữa kiến trúc Multi-AZ, Multi-Region, sức mạnh định tuyến của Global Accelerator, ALB health check, tính bền bỉ của ECS Fargate và khả năng đồng bộ của DynamoDB Global Tables.</p>
+<ul>
+<li>Khi một AZ lỗi, hệ thống ưu tiên tự động chuyển traffic nội bộ sang AZ còn healthy.</li>
+<li>Khi một Region lỗi, traffic được chuyển hướng ở cấp độ toàn cầu sang region còn hoạt động.</li>
+<li>Một quy trình khôi phục thành công đòi hỏi sự kết hợp chặt chẽ giữa monitoring, cơ chế failover tự động, quy trình kiểm tra, khả năng rollback và việc đúc kết kinh nghiệm sau mỗi sự cố.</li>
+</ul>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/vi/8-security/" title="Security"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/vi/10-backup-restore/" title="Backup &amp; Restore" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1780910012"></script>
+    <script src="/js/perfect-scrollbar.min.js?1780910012"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1780910012"></script>
+    <script src="/js/jquery.sticky.js?1780910012"></script>
+    <script src="/js/featherlight.min.js?1780910012"></script>
+    <script src="/js/highlight.pack.js?1780910012"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1780910012"></script>
+    <script src="/js/learn.js?1780910012"></script>
+    <script src="/js/hugo-learn.js?1780910012"></script>
+
+    <link href="/mermaid/mermaid.css?1780910012" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1780910012"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>
