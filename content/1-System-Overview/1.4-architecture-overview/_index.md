@@ -20,7 +20,7 @@ Users access the application API at `api.moneytrack.com`. The request travels th
 
 1. **User** sends a request to `api.moneytrack.com`.
 2. **Route 53** resolves the DNS and forwards the request to **AWS Global Accelerator**.
-3. **Global Accelerator** determines the Region with the lowest latency (Primary or Secondary Region) and routes the request to the corresponding **Application Load Balancer (ALB)**.
+3. **Global Accelerator** identifies the nearest healthy AWS Region and routes requests to the corresponding **Application Load Balancer (ALB)**.
 4. **AWS WAF**, attached to the ALB, inspects and filters the request — blocking threats such as SQL Injection, XSS, or requests from malicious IP addresses.
 5. The ALB distributes requests across **ECS Fargate** containers running in the **Private Subnet**.
 6. ECS Fargate connects to **DynamoDB Global Tables** via a **VPC Endpoint** (Gateway Endpoint) — traffic never traverses the public internet.

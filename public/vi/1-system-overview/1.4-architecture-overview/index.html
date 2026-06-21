@@ -12,21 +12,21 @@
     <title>Sơ đồ kiến trúc tổng quan :: Tạo mới tài khoản AWS</title>
 
     
-    <link href="/css/nucleus.css?1780906037" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1780906037" rel="stylesheet">
-    <link href="/css/hybrid.css?1780906037" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1780906037" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1780906037" rel="stylesheet">
-    <link href="/css/auto-complete.css?1780906037" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1780906037" rel="stylesheet">
-    <link href="/css/theme.css?1780906037" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1780906037" rel="stylesheet">
+    <link href="/css/nucleus.css?1782033300" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1782033300" rel="stylesheet">
+    <link href="/css/hybrid.css?1782033300" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1782033300" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1782033300" rel="stylesheet">
+    <link href="/css/auto-complete.css?1782033300" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1782033300" rel="stylesheet">
+    <link href="/css/theme.css?1782033300" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1782033300" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1780906037" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1782033300" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1780906037"></script>
+    <script src="/js/jquery-3.3.1.min.js?1782033300"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1780906037"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1780906037"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1782033300"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1782033300"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1780906037"></script>
+<script type="text/javascript" src="/js/search.js?1782033300"></script>
 
     
   </div>
@@ -1053,7 +1053,7 @@
             
           
           
-            <a href='/vi/'>Thiết lập Tài Khoản AWS</a> > <a href='/vi/1-system-overview/'>Tổng quan hệ thống</a> > Sơ đồ kiến trúc tổng quan
+            <a href='/vi/'>Tổng quan Workshop</a> > <a href='/vi/1-system-overview/'>Tổng quan hệ thống</a> > Sơ đồ kiến trúc tổng quan
           
         
           
@@ -1104,7 +1104,7 @@
 
 
 	<h1 id="14-sơ-đồ-kiến-trúc-tổng-quan">1.4 Sơ đồ kiến trúc tổng quan</h1>
-<p><img src="/images/architecture-overview.png" alt="Sơ đồ kiến trúc tổng quan"></p>
+<p><img src="/images/01/multi_region-overview.drawio.png?featherlight=false&amp;width=90pc" alt="Sơ đồ kiến trúc tổng quan"></p>
 <p>Sơ đồ trên mô tả <strong>kiến trúc Multi-Region</strong> của ứng dụng MoneyTrack. Hệ thống chạy đồng thời trên hai AWS Region, đảm bảo tính sẵn sàng cao và độ trễ thấp cho người dùng toàn cầu.</p>
 <hr>
 <h3 id="luồng-truy-cập-chính-api">Luồng truy cập chính (API)</h3>
@@ -1112,7 +1112,7 @@
 <ol>
 <li><strong>User</strong> gửi request đến <code>api.moneytrack.com</code>.</li>
 <li><strong>Route 53</strong> phân giải DNS và chuyển request đến <strong>AWS Global Accelerator</strong>.</li>
-<li><strong>Global Accelerator</strong> xác định Region có độ trễ thấp nhất (Primary hoặc Secondary Region) và chuyển tiếp request đến <strong>Application Load Balancer (ALB)</strong> tương ứng.</li>
+<li><strong>Global Accelerator</strong> tự động xác định Region gần nhất đang hoạt động bình thường và chuyển tiếp request đến <strong>Application Load Balancer (ALB)</strong> tương ứng.</li>
 <li><strong>AWS WAF</strong> được gắn vào ALB kiểm tra và lọc request, chặn các mối đe dọa như SQL Injection, XSS, hoặc request từ IP độc hại.</li>
 <li>ALB phân phối request đến các <strong>ECS Fargate</strong> container đang chạy trong <strong>Private Subnet</strong>.</li>
 <li>ECS Fargate kết nối với <strong>DynamoDB Global Tables</strong> thông qua <strong>VPC Endpoint</strong> (Gateway Endpoint) — không đi qua internet.</li>
@@ -1756,19 +1756,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1780906037"></script>
-    <script src="/js/perfect-scrollbar.min.js?1780906037"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1780906037"></script>
-    <script src="/js/jquery.sticky.js?1780906037"></script>
-    <script src="/js/featherlight.min.js?1780906037"></script>
-    <script src="/js/highlight.pack.js?1780906037"></script>
+    <script src="/js/clipboard.min.js?1782033300"></script>
+    <script src="/js/perfect-scrollbar.min.js?1782033300"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1782033300"></script>
+    <script src="/js/jquery.sticky.js?1782033300"></script>
+    <script src="/js/featherlight.min.js?1782033300"></script>
+    <script src="/js/highlight.pack.js?1782033300"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1780906037"></script>
-    <script src="/js/learn.js?1780906037"></script>
-    <script src="/js/hugo-learn.js?1780906037"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1782033300"></script>
+    <script src="/js/learn.js?1782033300"></script>
+    <script src="/js/hugo-learn.js?1782033300"></script>
 
-    <link href="/mermaid/mermaid.css?1780906037" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1780906037"></script>
+    <link href="/mermaid/mermaid.css?1782033300" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1782033300"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

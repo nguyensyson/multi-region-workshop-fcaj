@@ -8,7 +8,7 @@ pre: " <b> 1.4 </b> "
 
 # 1.4 Sơ đồ kiến trúc tổng quan
 
-![Sơ đồ kiến trúc tổng quan](/images/architecture-overview.png)
+![Sơ đồ kiến trúc tổng quan](/images/01/multi_region-overview.drawio.png?featherlight=false&width=90pc)
 
 Sơ đồ trên mô tả **kiến trúc Multi-Region** của ứng dụng MoneyTrack. Hệ thống chạy đồng thời trên hai AWS Region, đảm bảo tính sẵn sàng cao và độ trễ thấp cho người dùng toàn cầu.
 
@@ -20,7 +20,7 @@ Người dùng truy cập API của ứng dụng tại `api.moneytrack.com`. Req
 
 1. **User** gửi request đến `api.moneytrack.com`.
 2. **Route 53** phân giải DNS và chuyển request đến **AWS Global Accelerator**.
-3. **Global Accelerator** xác định Region có độ trễ thấp nhất (Primary hoặc Secondary Region) và chuyển tiếp request đến **Application Load Balancer (ALB)** tương ứng.
+3. **Global Accelerator** tự động xác định Region gần nhất đang hoạt động bình thường và chuyển tiếp request đến **Application Load Balancer (ALB)** tương ứng.
 4. **AWS WAF** được gắn vào ALB kiểm tra và lọc request, chặn các mối đe dọa như SQL Injection, XSS, hoặc request từ IP độc hại.
 5. ALB phân phối request đến các **ECS Fargate** container đang chạy trong **Private Subnet**.
 6. ECS Fargate kết nối với **DynamoDB Global Tables** thông qua **VPC Endpoint** (Gateway Endpoint) — không đi qua internet.
