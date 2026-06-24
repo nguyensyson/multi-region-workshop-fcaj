@@ -8,7 +8,7 @@ pre: " <b> 1. </b> "
 
 # 1. Tổng quan hệ thống
 
-Phần này cung cấp cái nhìn toàn diện về kiến trúc hệ thống **MoneyTrack** multi-region trên AWS. Bạn sẽ hiểu được bài toán cần giải quyết, các mục tiêu thiết kế, phạm vi workshop và sơ đồ kiến trúc tổng quan trước khi bắt đầu triển khai thực tế.
+Phần này cung cấp cái nhìn toàn diện về kiến trúc hệ thống **MoneyTrack** multi-region trên AWS. Bạn sẽ hiểu được bài toán cần giải quyết, các mục tiêu thiết kế, phạm vi workshop và sơ đồ kiến trúc tổng quan trước khi bắt đầu triển khai thực tế. sonns
 
 #### Nội dung chính
 
